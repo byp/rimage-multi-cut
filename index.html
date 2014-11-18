@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Rimage Multi-cut XML</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/datepicker3.css">
+		<link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Rimage Multi-cut XML</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+	    <h2>Create Rimage Multi-cut XML</h2>
+	    <form role="form"  id="form-multi-cut" data-toggle="validator">
+	        <div class="form-group">
+	            <label for="artist">Artist</label>
+	            <input type="text" class="form-control" name="artist" id="artist" placeholder="What is the artist's name?" data-minlength="2" required>
+				<div class="help-block with-errors"></div>
+	        </div>
+
+	        <div class="row">
+	            <div class="form-group col-xs-6">
+	                <label for="city">City</label>
+	                <input type="text" class="form-control" name="city" id="city" placeholder="What city is the event in?" data-minlength="2" required>
+					<div class="help-block with-errors"></div>
+	            </div>
+
+	            <div class="form-group col-xs-6">
+	                <label for="date">Date</label>
+					<div class="input-group date">
+					  <input type="text" class="form-control" name="date" id="date" placeholder="What is the date of the event?" required><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+					</div>
+					<div class="help-block with-errors"></div>
+	            </div>
+	        </div>
+
+	        <div class="row">
+	            <div class="form-group col-xs-6">
+	                <label for="order">Order</label>
+	                <input type="text" class="form-control" name="order" id="order" placeholder="What is the order number?" data-minlength="6" required>
+					<div class="help-block with-errors"></div>
+	            </div>
+
+	            <div class="form-group col-xs-6">
+	                <label for="cuts">Number of Cuts</label>
+	                <input type="number" class="form-control" id="cuts" placeholder="How many cuts do you want?" min="1" required>
+					<div class="help-block with-errors"></div>
+	            </div>
+	        </div>
+
+	        <div id="cuts-container"></div>
+
+	        <button type="submit" class="btn btn-default">Submit</button>
+	    </form>
+    </div> <!-- /container -->        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/vendor/bootstrap-datepicker.js"></script>
+        <script src="js/vendor/validator.min.js"></script>
+		<script src="js/vendor/XMLWriter-1.0.0-min.js"></script>
+		<script src="js/vendor/FileSaver.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
