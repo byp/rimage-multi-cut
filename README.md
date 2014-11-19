@@ -1,4 +1,4 @@
-Rimage Multi-cut XML
+Rimage Multi-cut XML Generator
 ====
 A basic graphical user interface (GUI) to generate an XML document for [Rimage](http://www.rimage.com/) Multi-cut.
 
