@@ -61,11 +61,20 @@
 					<div class="help-block with-errors"></div>
 	            </div>
 
-	            <div class="form-group col-xs-6">
+	            <div class="form-group col-xs-3">
 	                <label for="cuts">Number of Cuts</label>
 	                <input type="number" class="form-control" id="cuts" placeholder="How many cuts do you want?" min="1" required>
 					<div class="help-block with-errors"></div>
 	            </div>
+	
+				<div class="form-group col-xs-3">
+					<label class="radio-inline">
+					  <input type="radio" name="type" id="type_dvd" value="DVD" checked> DVD
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="type" id="type_bluray" value="Blu-ray"> Blu-ray
+					</label>
+				</div>
 	        </div>
 
 	        <div id="cuts-container"></div>

@@ -26,57 +26,62 @@ $(function() {
     $(form).submit(function(e) {
         e.preventDefault();
         
-		if ( $("#artist").val() && cuts.val() > 0 ) {
+		if ($("#artist").val() && cuts.val() > 0) {
 			var xw = new XMLWriter('UTF-8');
 	        xw.formatting = 'indented';//add indentation and newlines
 	        xw.indentChar = ' ';//indent with spaces
 	        xw.indentation = 4;//add 4 spaces per level
+	
+			var DVDisChecked = $('#type_dvd').is(':checked');
+			var BluRayisChecked = $('#type_bluray').is(':checked');
 
-	        xw.writeStartDocument( );
-	        xw.writeStartElement( 'contentagent' );
-	            xw.writeStartElement( 'contentagentjob' );
-	                xw.writeStartElement( 'sequence_filesources' );
-	                xw.writeAttributeString( 'title', 'Reel for DVD');
+	        xw.writeStartDocument();
+	        xw.writeStartElement('contentagent');
+	            xw.writeStartElement('contentagentjob');
+	                xw.writeStartElement('sequence_filesources');
+	
+					if (DVDisChecked) xw.writeAttributeString('title', 'Reel for DVD');
+					if (BluRayisChecked) xw.writeAttributeString('title', 'Reel for Blu-ray');
 
 	                for (var i = 0; i < cuts.val(); i++) {
 	                    xw.writeStartElement('filesource');
-	                        xw.writeAttributeString( 'title', $('#cutTitle'+i).val());
-	                        xw.writeAttributeString( 'filepath', $('#cutFilepath'+i).val());
+	                        xw.writeAttributeString('title', $('#cutTitle'+i).val());
+	                        xw.writeAttributeString('filepath', $('#cutFilepath'+i).val());
 
 	                        xw.writeStartElement('clipmetadata');
 
 	                            xw.writeStartElement('metadatacollection');
 
 	                                xw.writeStartElement('metadata');
-	                                    xw.writeAttributeString( 'groupname', 'Rimage');
-	                                    xw.writeAttributeString( 'copyinc', 'true');
+	                                    xw.writeAttributeString('groupname', 'Rimage');
+	                                    xw.writeAttributeString('copyinc', 'true');
 
-	                                    xw.writeStartElement( 'data');
-	                                        xw.writeAttributeString( 'name', 'artist');
-	                                        xw.writeAttributeString( 'displayname', 'Artist');
-	                                        xw.writeAttributeString( 'type', 'TextField');
-	                                        xw.writeAttributeString( 'value', $("#artist").val());
+	                                    xw.writeStartElement('data');
+	                                        xw.writeAttributeString('name', 'artist');
+	                                        xw.writeAttributeString('displayname', 'Artist');
+	                                        xw.writeAttributeString('type', 'TextField');
+	                                        xw.writeAttributeString('value', $("#artist").val());
 	                                    xw.writeEndElement();
 
-	                                    xw.writeStartElement( 'data');
-	                                        xw.writeAttributeString( 'name', 'city');
-	                                        xw.writeAttributeString( 'displayname', 'City');
-	                                        xw.writeAttributeString( 'type', 'TextField');
-	                                        xw.writeAttributeString( 'value', $("#city").val());
+	                                    xw.writeStartElement('data');
+	                                        xw.writeAttributeString('name', 'city');
+	                                        xw.writeAttributeString('displayname', 'City');
+	                                        xw.writeAttributeString('type', 'TextField');
+	                                        xw.writeAttributeString('value', $("#city").val());
 	                                    xw.writeEndElement();
 
-	                                    xw.writeStartElement( 'data');
-	                                        xw.writeAttributeString( 'name', 'order');
-	                                        xw.writeAttributeString( 'displayname', 'Order');
-	                                        xw.writeAttributeString( 'type', 'TextField');
-	                                        xw.writeAttributeString( 'value', $("#order").val());
+	                                    xw.writeStartElement('data');
+	                                        xw.writeAttributeString('name', 'order');
+	                                        xw.writeAttributeString('displayname', 'Order');
+	                                        xw.writeAttributeString('type', 'TextField');
+	                                        xw.writeAttributeString('value', $("#order").val());
 	                                    xw.writeEndElement();
 
-	                                    xw.writeStartElement( 'data');
-	                                        xw.writeAttributeString( 'name', 'date');
-	                                        xw.writeAttributeString( 'displayname', 'Date');
-	                                        xw.writeAttributeString( 'type', 'TextField');
-	                                        xw.writeAttributeString( 'value', $("#date").val());
+	                                    xw.writeStartElement('data');
+	                                        xw.writeAttributeString('name', 'date');
+	                                        xw.writeAttributeString('displayname', 'Date');
+	                                        xw.writeAttributeString('type', 'TextField');
+	                                        xw.writeAttributeString('value', $("#date").val());
 	                                    xw.writeEndElement();
 
 	                                xw.writeEndElement();
@@ -86,10 +91,12 @@ $(function() {
 	                }
 	                xw.writeEndElement();
 
-	                xw.writeStartElement( 'storeworkflow' );
-	                    xw.writeAttributeString( 'workflowname', 'BluRayMultiClip');
-	                    xw.writeAttributeString( 'workflowid', '');
-	                    xw.writeAttributeString( 'useraccount', 'User');
+	                xw.writeStartElement('storeworkflow');
+						if (DVDisChecked) xw.writeAttributeString('workflowname', 'BluRayMultiClip');
+						if (BluRayisChecked) xw.writeAttributeString('workflowname', 'DVDNOLABEL_Final');
+	
+	                    xw.writeAttributeString('workflowid', '');
+	                    xw.writeAttributeString('useraccount', 'User');
 	                xw.writeEndElement();
 
 	            xw.writeEndElement();
