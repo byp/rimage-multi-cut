@@ -92,8 +92,8 @@ $(function() {
 	                xw.writeEndElement();
 
 	                xw.writeStartElement('storeworkflow');
-						if (DVDisChecked) xw.writeAttributeString('workflowname', 'BluRayMultiClip');
-						if (BluRayisChecked) xw.writeAttributeString('workflowname', 'DVDNOLABEL_Final');
+						if (DVDisChecked) xw.writeAttributeString('workflowname', 'DVDNOLABEL_Final');
+						if (BluRayisChecked) xw.writeAttributeString('workflowname', 'BluRayMultiClip');
 	
 	                    xw.writeAttributeString('workflowid', '');
 	                    xw.writeAttributeString('useraccount', 'User');
